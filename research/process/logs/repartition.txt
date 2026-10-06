@@ -1,0 +1,12 @@
+select disk 2
+clean
+convert gpt
+create partition primary size=3000
+format quick fs=fat32 label="EFI"
+assign
+create partition primary
+format quick fs=exfat label="TARGET"
+assign
+list partition
+list volume
+exit

@@ -1,0 +1,70 @@
+﻿**********************
+Windows PowerShell 脚本开始
+开始时间: 20261005044046
+用户名: LAPTOP-MGQP805F\94498
+RunAs 用户: LAPTOP-MGQP805F\94498
+配置名称: 
+计算机: LAPTOP-MGQP805F (Microsoft Windows NT 10.0.26200.0)
+主机应用程序: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File E:\hackintosh\sonoma\repartition_run2.ps1
+进程 ID: 23216
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+=== format partition1 F: as FAT32 ===
+
+
+DriveLetter     : F
+FileSystemLabel : EFI
+FileSystem      : FAT32
+Size            : 3137339392
+HealthStatus    : Healthy
+
+
+
+=== create partition2 with rest of disk ===
+
+
+PartitionNumber : 2
+DriveLetter     : G
+Size            : 59766734848
+GptType         : {ebd0a0a2-b9e5-4433-87c0-68b6b72699c7}
+
+
+
+=== format partition2 as exFAT ===
+
+
+DriveLetter     : G
+FileSystemLabel : TARGET
+FileSystem      : exFAT
+Size            : 59763589120
+HealthStatus    : Healthy
+
+
+
+=== final partitions ===
+
+PartitionNumber DriveLetter        Size Type  GptType
+--------------- -----------        ---- ----  -------
+              1           F  3145728000 Basic {ebd0a0a2-b9e5-4433-87c0-68b6b72699c7}
+              2           G 59766734848 Basic {ebd0a0a2-b9e5-4433-87c0-68b6b72699c7}
+
+
+=== final volumes ===
+
+DriveLetter FileSystemLabel FileSystem        Size HealthStatus
+----------- --------------- ----------        ---- ------------
+          G TARGET          exFAT      59763589120 Healthy
+          F EFI             FAT32       3137339392 Healthy
+
+
+**********************
+Windows PowerShell 脚本结束
+结束时间: 20261005044101
+**********************

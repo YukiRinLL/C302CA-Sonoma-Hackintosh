@@ -1,0 +1,22 @@
+{
+ "E:\\hackintosh\\macOS Downloads\\InstallESDDmg.pkg": {
+  "size": 5544818527,
+  "sha256": "defd3e8fdaaed4b816ebdd7fdd92ebc44f12410a0deeb93e34486c3d7390ffb7"
+ },
+ "E:\\hackintosh\\macOS Downloads\\RecoveryHDMetaDmg.pkg": {
+  "size": 481987399,
+  "sha256": "fee67d1a4423998ae1929095d3e83e405a00830e415b32426f2c24192b21c2cb"
+ },
+ "E:\\hackintosh\\macOS Downloads\\BaseSystem.dmg": {
+  "size": 480457041,
+  "sha256": "c1bb8a816a9ecd916e824c975368a3921f4bcbc9469aa63e9c9fe10a783931ad"
+ },
+ "E:\\hackintosh\\hfsimg\\4.hfs": {
+  "size": 2001362944,
+  "sha256": "5001536b47659eb43fbf7df8c6e83452128d11e766f16536adfd430ddfdc4fc5"
+ },
+ "E:\\hackintosh\\sonoma\\com.apple.recovery.boot\\BaseSystem.dmg": {
+  "size": 789568598,
+  "sha256": "591f07a9a4a58d855a2e53b86a5f5da854a250000a66a9382adaf106c20f839b"
+ }
+}

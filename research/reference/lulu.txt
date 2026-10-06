@@ -1,0 +1,114 @@
+These steps are **required for proper functioning.** 
+ If you haven’t already, use Ethan’s script to flash a MacOS-optimized build of UEFI coreboot after turning off hardware write protection using the unplug battery method . This version of the firmware works in other OSes too, but has optimizations for MacOS which are still compatible with Windows and Linux. 
+ Thoroughly read the OpenCore Guide . Use Laptop Broadwell when ready to set up your EFI. Be sure to use the Debug vesion of OpenCore initially.
+ See here for OpenCore debugging info 
+ Enable the SysReport quirk in order to dump your ACPI tables, especially your DSDT to run through SSDTTime to generate required SSDT’s as mentioned in step 9. 
+ Re-visit this guide when you’re done setting up your EFI. There are a few things we need to tweak to ensure our Chromebook works with macOS. 
+ Fixing CPU core (thread) definition and plugin-type as mentioned in Current Issues
+ The simplest way: Flash using Ethan’s script instead of MrChromebox’s. 
+ Advanced: In an SSDT, set _STA to 0 on all CPU threads, and then define new CPU thread names with compatible addressing and plugin-type set. See 4-thread CPU sample SSDT that you can compile and use. This assumes you’re using MrChromebox Rom and not from Ethan’s script. 
+ Advanced: (working for other Chromebook Hackintoshers): Use SSDT-Plug-Alt.aml. This seems to work fine, but leaves “stray” CPU definitions in the IOService plane. It is unknown if this can cause issues down the line but doesn’t sit right with me. This assumes you’re using MrChromebox Rom and not from Ethan’s script. 
+ Advanced (works but not recommended): This is akin to static patching a DSDT, which hackintoshers have moved away from years ago. However, Coreboot defines the CPU in its own SSDT outside of the DSDT, usually called SSDT-1.aml. We can use OpenCore to drop (delete) this OEM SSDT and inject our own, mostly identical “SSDT-1” but with corrected CPU addressing and plugin-type within said SSDT or another SSDT. I won’t provide instructions to do this. This assumes you’re using MrChromebox Rom and not from Ethan’s script. 
+ In your config.plist , under Booter -> Quirks set ProtectMemoryRegions to TRUE . It should look something like this in your config.plist when done correctly: 
+ Quirk 
+ Type 
+ Value 
+ ProtectMemoryRegions 
+ Boolean 
+ True 
+ Warning The above must be enabled for Chromebooks/Chromeboxes to boot MacOS. 
+ Under DeviceProperties -> Add -> PciRoot(0x0)/Pci(0x2,0x0) , the following modifications are recommended to enable graphics acceleration, enable smooth LCD backlight stepping, correct the HDMI output signal type, and disable the nonexistant 3rd framebuffer: 
+ Key 
+ Type 
+ Value 
+ AAPL,ig-platform-id 
+ data 
+ 06002616 
+ framebuffer-patch-enable 
+ data 
+ 01000000 
+ framebuffer-con1-enable 
+ data 
+ 9B3E0000 
+ framebuffer-con1-type 
+ data 
+ 00080000 
+ framebuffer-portcount 
+ number 
+ 2 
+ enable-backlight-smoother 
+ data 
+ 01000000 
+ You are free to experiment with different AAPL,ig-platform-id ’s but 06002616 works well 
+ MacBookAir7,2 works with Mojave through Monterey. Anything before or after those MacOS versions is not covered here. . You may find a better suited SMBIOS to mimic or for unsupported future OS versions. Experiment as you wish. 
+ You can use the standard VoodooPS2controller and VoodooPS2keyboard plugin with the PS2 chromebook remapping SSDT sample . There’s no need to use a fork with custom maps in the kext.
+ Keyboard backlight dimming works with SSDT-KBBL.aml and can be found here . The light may or may not come back on after sleeping, but you can use the key-command to dim it back up… This is a bonus feature after all. 
+ It’s recommended to use SSDTTime to generate a fake EC (laptop verions), HPET (IRQ conflicts) and PNLF (requred for display backlight control). Be sure to copy any resulting rename patches from oc_patches.plist into your config.plist under ACPI -> Patch . 
+ Map your USB ports³ before installing using Windows. If you can’t be bothered to install Windows, mapping can be done in WinPE. See USBToolbox . Remember you need the USBToolbox.kext and your generated UTBMap.kext. 
+ Snapshot (cmd +r) or (ctrl + r) your config.plist . 
+ Warning : Don’t use “clean snapshot” ( ctrl/cmd+shift+r ) in Propertree after initially copying the sample as config.plist. This can wipe some work. Only do regular snapshots after first starting. ( ctrl/cmd+r ) 
+ Attempt to install the OS 
+ Reminder : In depth information about OpenCore can be found here. 
+ Working around CPU changes to Coreboot 4.20.0+ 
+ Coreboot UEFI firmware 4.20 (5/15/2023 release) has a known issue where booting macOS will hang even if you think you’ve created a plugin-type SSDT. To fix this, just use Ethan’s firmware script and the CPU address is solved, then you can use SSDTTime like the Dortania Guide suggests (but feed it SSDT-1.aml from your SysReport). 
+ Kexts 
+ Propertree should arrange the kexts in the correct order when using OC Snapshot, but here are the enabled kexts and how I’ve ordered them in my config.plist: 
+ Lilu.kext
+VirtualSMC.kext
+SMCBatteryManager.kext
+SMCSuperIO.kext
+SMCProcessor.kext
+WhateverGreen.kext
+AppleALC.kext
+USBToolbox.kext
+UTBMap.kext
+VoodooPS2Controller.kext
+VoodooPS2Keyboard.kext
+VoodooPS2Trackpad.kext
+VoodooRMI.kext
+VoodooRMI.kext/VoodooInput.kext
+VoodooI2C.kext/VoodooGPIO.kext
+VoodooI2C.kext/VoodooI2CServices.kext
+VoodooI2C.kext
+VoodooRMI.kext/RMII2C.kext
+ Any kexts that are auto-loaded but not listed above should be disabled in your config.plist. 
+ ACPI Folder 
+ ssdt-plug-4200.aml
+SSDT-EC.aml From SSDTTime. 
+SSDT-HPET.aml From SSDTTime. (requires rename hotpatches, don't forget those)
+SSDT-KBBL.aml
+SSDT-PNLF.aml From SSDTTime. 
+ssdt-syna.aml (requires hotpatch below)
+ssdt-chromebook-keys.aml
+ Note : Some of these SSDTs were generated with SSDTTime and some were manually written by me for this specific Chromebook. See the ACPI Sample folder for .dsl files you can download, double check, then compile into AML.
+ ssdt-syna.aml defines the _CID of the Synaptics RMI-I2C trackpad as PNP0C50 . The original _CID in the DSDT is ACPI0C50 so we need a hotpatch to rename _CID to XCID. This allows the new _CID in ssdt-syna.aml to work so that VoodooRMII2C can attach to the trackpad. one8three’s method involves manually editing the plist of the kext. This method seems more suitable to survive kext updates down the line when you may forget about the _CID situation with the trackpad. Credit to one8three for identifying the discrepancy in the DSDT. Here is the hotpatch to put in the ACPI/Patch section of your config.plist: 
+ | Key | Type | Value |
+ | ——————– | —— | —————— |
+ | Base | String | |
+ | BaseSkip | Number | 0 |
+ | Comment | String |_CID to XCID in SYNA|
+ | Count | Number | 0 |
+ | Enabled | Boolean| True |
+ | Find | Data | 5F4349440D41 |
+ | Limit | Number | 0 |
+ | Mask | Data | |
+ | OemTableID | Data | 00000000 |
+ | Replace | Data | 584349440D41 |
+ | ReplaceMask | Data | |
+ | Skip | Number | 0 |
+ | TableLength | Number | 0 |
+ | TableSignature | Data | 00000000 | 
+ Misc. Information 
+ When formatting the SSD in Disk Utility, make sure to toggle “Show all Drives” to start partitioning. 
+ Format the drive as APFS and GUID Partition Table / GPT 
+ Map your USB ports prior to installing macOS. You can use USBToolBox to do that. You will need a second kext that goes along with it for it to work. Repo here. . Your UTBMap.kext will not work without USBToolBox.kext. 
+ AppleTV and other DRM protected services may not work. 
+ Control keyboard light with left ctrl + left alt and , or . .
+ , to decrease, . to increase. 
+ Credit to one8three for the original Dell 7310 Guide 
+ Credit to mine-man30000 for the guide this is based on 
+ Credit to meghan06 for the guide that mine-man3000’s is based on 
+ Credit to all those who contribute to the Chrultrabook project 
+ Credit to MrChromebox for inadvertently making the firmware compatible with MacOS. 
+ Credit to ExtremeXT for forking and including the modifications for a MacOS-friendly Coreboot 
+ Credit to Ethan (ethanthesleepyone) for hosting builds and the MacOS firmware script 

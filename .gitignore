@@ -1,0 +1,14 @@
+# macOS / Windows / Python
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# 本机真实 SMBIOS（严禁提交）
+config-local.plist
+*.local.plist
+
+# OpenCore 运行期日志（仅指 EFI/根或仓库根的运行产物；
+# research/ 下的历史日志属于研究记录，必须保留跟踪）
+/opencore-*.txt
+/EFI/**/opencore-*.txt

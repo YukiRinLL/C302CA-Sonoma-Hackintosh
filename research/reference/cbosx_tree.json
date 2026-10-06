@@ -1,0 +1,276 @@
+{
+  "sha": "b502d7d8bdd2cc936a4708cc90664f125fd071c1",
+  "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/b502d7d8bdd2cc936a4708cc90664f125fd071c1",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "572a84e2ff03109f54ac6c67590afd2f7c042623",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/572a84e2ff03109f54ac6c67590afd2f7c042623"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0db270ee794e9b04fc7c864c7742f6381106f8b6",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/0db270ee794e9b04fc7c864c7742f6381106f8b6"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/issues-template.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff8f77b78f30b6419aca1cb47104b1753df49d58",
+      "size": 734,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/ff8f77b78f30b6419aca1cb47104b1753df49d58"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "73cbf13aafa7af41aa56558d8c36a1b59bc63c15",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/73cbf13aafa7af41aa56558d8c36a1b59bc63c15"
+    },
+    {
+      "path": ".github/workflows/deploy.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45d4ce5b33abddee8052559f5c9897bc8fe76d29",
+      "size": 2296,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/45d4ce5b33abddee8052559f5c9897bc8fe76d29"
+    },
+    {
+      "path": "CNAME",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23e6f303e0ec7d205566245ef64805a72a81724b",
+      "size": 16,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/23e6f303e0ec7d205566245ef64805a72a81724b"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "size": 35149,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/f288702d2fa16d3cdf0035b15a9fcbc552cd88e7"
+    },
+    {
+      "path": "OLD-README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "042acfce12f35edb6ccc9a70cbc820790e478f28",
+      "size": 26256,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/042acfce12f35edb6ccc9a70cbc820790e478f28"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "128954f830586ec3b0f7011d0d1e1331dc6f2022",
+      "size": 333,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/128954f830586ec3b0f7011d0d1e1331dc6f2022"
+    },
+    {
+      "path": "archetypes",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f5b1aa13654d360771df3da98296ac958d537d88",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/f5b1aa13654d360771df3da98296ac958d537d88"
+    },
+    {
+      "path": "archetypes/default.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00e77bd79be44872c0b29256b03799c2fb00c10d",
+      "size": 84,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/00e77bd79be44872c0b29256b03799c2fb00c10d"
+    },
+    {
+      "path": "content",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d5d2967ce320b0d74807ce24e1a897b79ccfe931",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/d5d2967ce320b0d74807ce24e1a897b79ccfe931"
+    },
+    {
+      "path": "content/docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1269352e821eca2e5cd300301c974b19c6077ebd",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/1269352e821eca2e5cd300301c974b19c6077ebd"
+    },
+    {
+      "path": "content/docs/_index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15478a73fe03b8030808e8f2f149bf5a8b7a1918",
+      "size": 142,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/15478a73fe03b8030808e8f2f149bf5a8b7a1918"
+    },
+    {
+      "path": "content/docs/firmware",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1074efab448be241bcc0b8096371923f8760e47a",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/1074efab448be241bcc0b8096371923f8760e47a"
+    },
+    {
+      "path": "content/docs/firmware/_index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55001c6d61f4dd5d2d3faf33e345af1b537b2d9a",
+      "size": 129,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/55001c6d61f4dd5d2d3faf33e345af1b537b2d9a"
+    },
+    {
+      "path": "content/docs/firmware/fixedfw.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c4db79cd537d25b17af69e6be9e9769b4e60881",
+      "size": 1177,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/6c4db79cd537d25b17af69e6be9e9769b4e60881"
+    },
+    {
+      "path": "content/docs/firmware/quickstart.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9e9a8b4fe98dcd8fe931e3aae2943b48844f228",
+      "size": 2408,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/b9e9a8b4fe98dcd8fe931e3aae2943b48844f228"
+    },
+    {
+      "path": "content/docs/installingmacos",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "837d0ee3f7d32aa2dca237e34e08ad97e94901d0",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/837d0ee3f7d32aa2dca237e34e08ad97e94901d0"
+    },
+    {
+      "path": "content/docs/installingmacos/_index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c1c47fa9699c7662c62071c3e18ba18fdef0220",
+      "size": 116,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/2c1c47fa9699c7662c62071c3e18ba18fdef0220"
+    },
+    {
+      "path": "content/docs/installingmacos/installing.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fadbfecacaaadc30b798598e2e84e412d8ac5282",
+      "size": 3105,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/fadbfecacaaadc30b798598e2e84e412d8ac5282"
+    },
+    {
+      "path": "content/docs/installingmacos/prereq.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d7b42b0ad653b1f7019e7439c7c0216aa531890",
+      "size": 4834,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/5d7b42b0ad653b1f7019e7439c7c0216aa531890"
+    },
+    {
+      "path": "content/docs/misc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "51e6917d5909d51a05e83ef964d88e6c34b0b4a3",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/51e6917d5909d51a05e83ef964d88e6c34b0b4a3"
+    },
+    {
+      "path": "content/docs/misc/_index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74b0aa2c07e93959174ead84638ce0dc3765fdd3",
+      "size": 93,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/74b0aa2c07e93959174ead84638ce0dc3765fdd3"
+    },
+    {
+      "path": "content/docs/misc/misc.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b614d0b411870d553976a13b651d92da9bf38f8a",
+      "size": 3117,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/b614d0b411870d553976a13b651d92da9bf38f8a"
+    },
+    {
+      "path": "content/docs/overview.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e8069be93d6eccda6b9c8462b5c3defd002eb7b",
+      "size": 994,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/2e8069be93d6eccda6b9c8462b5c3defd002eb7b"
+    },
+    {
+      "path": "content/docs/post-install",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c1c7b9841bb8347053d513af2f224f5bfc4fc3dc",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/c1c7b9841bb8347053d513af2f224f5bfc4fc3dc"
+    },
+    {
+      "path": "content/docs/post-install/_index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d0407ae34b4017620d505be5fdbb8546d625897",
+      "size": 109,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/1d0407ae34b4017620d505be5fdbb8546d625897"
+    },
+    {
+      "path": "content/docs/post-install/postinstall.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "763546f873b1ef791f0d4494d73d0d33ebfb5406",
+      "size": 420,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/763546f873b1ef791f0d4494d73d0d33ebfb5406"
+    },
+    {
+      "path": "data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a1fcb3e9c7f4ed665f5e102c21238015cbb4975e",
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/trees/a1fcb3e9c7f4ed665f5e102c21238015cbb4975e"
+    },
+    {
+      "path": "data/landing.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "febec7abb0299bff94bd567c8e42437f1d559295",
+      "size": 3700,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/febec7abb0299bff94bd567c8e42437f1d559295"
+    },
+    {
+      "path": "go.mod",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a56fac21e98410f2564c3e5c22229a58dbee98f",
+      "size": 136,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/4a56fac21e98410f2564c3e5c22229a58dbee98f"
+    },
+    {
+      "path": "go.sum",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "503662320a498e4fd0c4bb5a5529d308ad49622c",
+      "size": 451,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/503662320a498e4fd0c4bb5a5529d308ad49622c"
+    },
+    {
+      "path": "hugo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a796a58e015895615daea7837de1ab09cf7b8347",
+      "size": 4491,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/a796a58e015895615daea7837de1ab09cf7b8347"
+    },
+    {
+      "path": "vercel.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67fe7bc7e6b326f701457fb474b20f3d6db1abce",
+      "size": 1378,
+      "url": "https://api.github.com/repos/meghan06/ChromebookOSX/git/blobs/67fe7bc7e6b326f701457fb474b20f3d6db1abce"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,65 @@
+﻿**********************
+Windows PowerShell 脚本开始
+开始时间: 20261001224318
+用户名: LAPTOP-MGQP805F\94498
+RunAs 用户: LAPTOP-MGQP805F\94498
+配置名称: 
+计算机: LAPTOP-MGQP805F (Microsoft Windows NT 10.0.26200.0)
+主机应用程序: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -EncodedCommand UwB0AGEAcgB0AC0AVAByAGEAbgBzAGMAcgBpAHAAdAAgAC0AUABhAHQAaAAgACcARQA6AFwAaABhAGMAawBpAG4AdABvAHMAaABcAGUAbABlAHYAYQB0AGUAZAAuAGwAbwBnACcAIAAtAEEAcABwAGUAbgBkACAAfAAgAE8AdQB0AC0ATgB1AGwAbAAKAFMAZQB0AC0ATABvAGMAYQB0AGkAbwBuACAAJwBFADoAXABoAGEAYwBrAGkAbgB0AG8AcwBoAFwAZwBpAGIATQBhAGMATwBTACcACgAiAD0APQA9ACAAUwBUAEEAUgBUACAAJAAoAEcAZQB0AC0ARABhAHQAZQApACAAPQA9AD0AIgAgAHwAIABPAHUAdAAtAEYAaQBsAGUAIAAnAEUAOgBcAGgAYQBjAGsAaQBuAHQAbwBzAGgAXABlAGwAZQB2AGEAdABlAGQALgBsAG8AZwAnACAALQBBAHAAcABlAG4AZAAKAHQAcgB5ACAAewAKACAAIAAkAHAAIAA9ACAAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAC0ARgBpAGwAZQBQAGEAdABoACAAJwBDADoAXABQAHkAdABoAG8AbgAzADEAMwBcAHAAeQB0AGgAbwBuAC4AZQB4AGUAJwAgAC0AQQByAGcAdQBtAGUAbgB0AEwAaQBzAHQAIAAnAE0AYQBrAGUASQBuAHMAdABhAGwAbAAuAHAAeQAnACAALQBOAG8ATgBlAHcAVwBpAG4AZABvAHcAIAAtAFcAYQBpAHQAIAAtAFAAYQBzAHMAVABoAHIAdQAgAC0AUgBlAGQAaQByAGUAYwB0AFMAdABhAG4AZABhAHIAZABJAG4AcAB1AHQAIAAnAEUAOgBcAGgAYQBjAGsAaQBuAHQAbwBzAGgAXABtAGkAXwBpAG4AcAB1AHQALgB0AHgAdAAnACAALQBSAGUAZABpAHIAZQBjAHQAUwB0AGEAbgBkAGEAcgBkAE8AdQB0AHAAdQB0ACAAJwBFADoAXABoAGEAYwBrAGkAbgB0AG8AcwBoAFwAbQBhAGsAZQBpAG4AcwB0AGEAbABsAC4AbABvAGcAJwAgAC0AUgBlAGQAaQByAGUAYwB0AFMAdABhAG4AZABhAHIAZABFAHIAcgBvAHIAIAAnAEUAOgBcAGgAYQBjAGsAaQBuAHQAbwBzAGgAXABtAGEAawBlAGkAbgBzAHQAYQBsAGwALgBlAHIAcgAuAGwAbwBnACcACgAgACAAIgBFAHgAaQB0AEMAbwBkAGUAOgAgACQAKAAkAHAALgBFAHgAaQB0AEMAbwBkAGUAKQAiACAAfAAgAE8AdQB0AC0ARgBpAGwAZQAgACcARQA6AFwAaABhAGMAawBpAG4AdABvAHMAaABcAGUAbABlAHYAYQB0AGUAZAAuAGwAbwBnACcAIAAtAEEAcABwAGUAbgBkAAoAfQAgAGMAYQB0AGMAaAAgAHsACgAgACAAIgBFAFIAUgBPAFIAOgAgACQAKAAkAF8ALgBFAHgAYwBlAHAAdABpAG8AbgAuAE0AZQBzAHMAYQBnAGUAKQAiACAAfAAgAE8AdQB0AC0ARgBpAGwAZQAgACcARQA6AFwAaABhAGMAawBpAG4AdABvAHMAaABcAGUAbABlAHYAYQB0AGUAZAAuAGwAbwBnACcAIAAtAEEAcABwAGUAbgBkAAoAfQAKAFMAdABvAHAALQBUAHIAYQBuAHMAYwByAGkAcAB0ACAAfAAgAE8AdQB0AC0ATgB1AGwAbAA=
+进程 ID: 26304
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+PS>TerminatingError(Out-File):“文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。”
+Out-File : 文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。
+所在位置 行:3 字符: 31
++ ... TART $(Get-Date) ===" | Out-File 'E:\hackintosh\elevated.log' -Append
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+Out-File : 文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。
+所在位置 行:3 字符: 31
++ ... TART $(Get-Date) ===" | Out-File 'E:\hackintosh\elevated.log' -Append
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+Start-Process : 无法运行此命令，因为参数“RedirectStandardInput 'E:\hackintosh\mi_input.txt'”具有无效的值或不适用于此命令。请指定一个有效输入，然后再次运行此命令。
+所在位置 行:5 字符: 8
++   $p = Start-Process -FilePath 'C:\Python313\python.exe' -ArgumentLis ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process]，FileNotFoundException
+    + FullyQualifiedErrorId : FileNotFoundException,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : 无法运行此命令，因为参数“RedirectStandardInput 'E:\hackintosh\mi_input.txt'”具有无效的值或不适用于此
+命令。请指定一个有效输入，然后再次运行此命令。
+所在位置 行:5 字符: 8
++   $p = Start-Process -FilePath 'C:\Python313\python.exe' -ArgumentLis ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process]，FileNotFoundException
+    + FullyQualifiedErrorId : FileNotFoundException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+PS>TerminatingError(Out-File):“文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。”
+>> TerminatingError(Out-File):“文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。”
+Out-File : 文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。
+所在位置 行:8 字符: 38
++ ... _.Exception.Message)" | Out-File 'E:\hackintosh\elevated.log' -Append
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+Out-File : 文件“E:\hackintosh\elevated.log”正由另一进程使用，因此该进程无法访问此文件。
+所在位置 行:8 字符: 38
++ ... _.Exception.Message)" | Out-File 'E:\hackintosh\elevated.log' -Append
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+**********************
+Windows PowerShell 脚本结束
+结束时间: 20261001224318
+**********************

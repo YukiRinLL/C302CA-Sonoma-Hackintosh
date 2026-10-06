@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>LuluMacOS | Tips for using MacOS on the Dell Chromebook 7310</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="LuluMacOS" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tips for using MacOS on the Dell Chromebook 7310" />
+<meta property="og:description" content="Tips for using MacOS on the Dell Chromebook 7310" />
+<link rel="canonical" href="https://isi95010.github.io/LuluMacOS/" />
+<meta property="og:url" content="https://isi95010.github.io/LuluMacOS/" />
+<meta property="og:site_name" content="LuluMacOS" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="LuluMacOS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Tips for using MacOS on the Dell Chromebook 7310","headline":"LuluMacOS","name":"LuluMacOS","url":"https://isi95010.github.io/LuluMacOS/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/LuluMacOS/assets/css/style.css?v=1366a5093c068d9848532c9256935ebe32246142">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/LuluMacOS/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+
+      <h1 id="lulumacos">LuluMacOS</h1>
+<p>Tips for using MacOS on the Dell Chromebook 7310 (with Core i3 or i5 CPU)</p>
+
+<p><strong>A complete EFI is not provided in this repo, in accordance with “DIY” tradition. DIY: Do It Yourself. You will be better familiar with the process and will be able to troubleshoot on your own by starting with the <a href="https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/broadwell.html">Dortania OpenCore Install Guide</a>. Please do not request an EFI here.</strong></p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+  <li><a href="#current-status">Current Status</a></li>
+  <li><a href="#versions-tested">Versions Tested</a></li>
+  <li><a href="#requirements">Requirements</a></li>
+  <li><a href="#current-issues">Issues</a></li>
+  <li><a href="#installation"><strong>Installation</strong></a>
+    <ul>
+      <li><a href="#these-steps-are-required-for-proper-functioning">Required Steps</a></li>
+      <li><a href="#Working-around-CPU-changes-to-Coreboot-4.20.0+">Coreboot 4.20.0+ CPU patch</a></li>
+      <li><a href="#kexts">Suggested Kexts</a></li>
+      <li><a href="#acpi-folder">Suggested ACPI files and hotpatches</a></li>
+    </ul>
+  </li>
+  <li><a href="#misc-information">Misc. Information</a>
+    <h2 id="current-status">Current Status</h2>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Feature</strong></th>
+      <th><strong>Status</strong></th>
+      <th><strong>Notes</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WiFi</td>
+      <td>Working</td>
+      <td>Native with BCM94360NG. If you’re using the stock card, see OpenIntelWireless (not covered)</td>
+    </tr>
+    <tr>
+      <td>Bluetooth</td>
+      <td>Working</td>
+      <td>Native with BCM94360NG. If you’re using the stock card, see OpenIntelWireless (not covered)</td>
+    </tr>
+    <tr>
+      <td>Suspend / Sleep</td>
+      <td>Working</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Trackpad</td>
+      <td>Working</td>
+      <td>With <code class="language-plaintext highlighter-rouge">VoodooI2C.kext</code> and <code class="language-plaintext highlighter-rouge">VoodooRMI.kext</code> and ACPI patch.</td>
+    </tr>
+    <tr>
+      <td>Graphics Accel.</td>
+      <td>Working</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Internal Speakers</td>
+      <td>Working</td>
+      <td>AppleALC.kext using layout-id 3</td>
+    </tr>
+    <tr>
+      <td>Keyboard backlight</td>
+      <td>Working</td>
+      <td>With <a href="https://github.com/isi95010/LuluMacOS/blob/main/acpi/SSDT-KBBL.dsl"><code class="language-plaintext highlighter-rouge">SSDT-KBBL.aml</code></a></td>
+    </tr>
+    <tr>
+      <td>Keyboard &amp; Remaps</td>
+      <td>Working</td>
+      <td>See remap ACPI sample <a href="https://github.com/isi95010/LuluMacOS/blob/main/acpi/ssdt-chromebook-keys.dsl">here</a></td>
+    </tr>
+    <tr>
+      <td>SD Card Reader</td>
+      <td>Working</td>
+      <td>It is USB, so insert a card into the slot while USB mapping</td>
+    </tr>
+    <tr>
+      <td>Headphone Jack</td>
+      <td>Working</td>
+      <td>AppleALC.kext using layout-id 3</td>
+    </tr>
+    <tr>
+      <td>HDMI Audio</td>
+      <td>Working</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HDMI Video</td>
+      <td>Working</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>USB Ports</td>
+      <td>Working</td>
+      <td>Working with USB mapping</td>
+    </tr>
+    <tr>
+      <td>Webcam</td>
+      <td>Working</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Internal Mic.</td>
+      <td>Working</td>
+      <td>AppleALC.kext using layout-id 3</td>
+    </tr>
+    <tr>
+      <td>Shutdown / Restart</td>
+      <td>Working</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Continuity</td>
+      <td>Untested</td>
+      <td>Will not work with stock Intel card. Should work with replacement BCM94360NG card</td>
+    </tr>
+    <tr>
+      <td>NVRAM</td>
+      <td>Working</td>
+      <td>Native NVRAM working with firmware 4.20 and 4.20.1. Earlier versions may need to emulate</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h3 id="versions-tested">Versions Tested</h3>
+
+<ul>
+  <li>12 (Monterey)</li>
+  <li>10.14 (Mojave)</li>
+</ul>
+
+<hr />
+
+<h3 id="requirements">Requirements</h3>
+
+<p>This document assumes you’ve already disabled write protect and successfuly flashed the <a href="https://github.com/Chromeintosh/coreboot">Chromeintosh fork</a> of MrChromebox’s  Coreboot firmware to your device.</p>
+
+<ul>
+  <li>A Core i3 or Core i5 variant of the Dell Chromebook 7310. The Celeron version probably will <em>not</em> work and is not covered at all.</li>
+  <li>An external storage device (can range from an SD card to a USB Disk / Drive) for creating the installer USB.</li>
+  <li>Small philips screwdriver and “spudger” for opening the laptop chassis. This is to replace the tiny stock SSD (need at least a 64GB m.2 SATA) and optionally replacing the WiFi/BT card with a Broadcom-based unit. The BCM94360NG is highly recommended.</li>
+  <li>Experience with MacOS</li>
+  <li>Experience with hackintoshes is preferable because this is even more niche than installing MacOS on a PC.</li>
+  <li>A USB mouse in case you have trouble with the trackpad at first</li>
+</ul>
+
+<h3 id="current-issues">Current Issues</h3>
+<blockquote>
+  <p><strong>Note</strong>: MrChromebox coreboot 4.20 (5/15/2023 release) and higher is confirmed to cause issues with booting macOS on Chromebooks without taking specific steps. There are several methods to work around this. See “4. Fixing CPU core (thread) definition and plugin-type” below</p>
+  <ul>
+    <li>Often, with the Dell 7310, booting MacOS seems to hang after IGPU initialization or somewhere around BlueTooth verbose messages. The trick is to just swipe or tap the trackpad and it should continue booting.</li>
+  </ul>
+</blockquote>
+
+<h2 id="installation">Installation</h2>
+
+<hr />
+
+<h1 id="warning-this-is-an-advanced-hobbyist-project-there-is-no-tech-support-and-the-authors-of-this-document-and-authors-of-the-documents-linked-are-not-responsible-for-damage-to-your-device-any-claims-about-functionality-may-be-opinion-and-are-open-to-challenge-we-will-try-to-keep-this-guide-up-to-date-as-new-information-emerges-but-may-become-outdated-at-any-point-in-the-future-to-discuss-feel-free-to-post-in-the-chrultrabook-forums-or-in-the-hackintosh-paradise-discord-server"><strong><em>Warning:</em></strong> This is an advanced hobbyist project. There is no tech support and the authors of this document and authors of the documents linked are not responsible for damage to your device. Any claims about functionality may be opinion and are open to challenge. We will try to keep this guide up-to-date as new information emerges, but may become outdated at any point in the future. To discuss, feel free to post in the <a href="https://forum.chrultrabook.com/c/support/macos-support">Chrultrabook Forums</a> or in the Hackintosh Paradise Discord server.</h1>
+<hr />
+
+<h3 id="these-steps-are-required-for-proper-functioning"><strong>These steps are **required</strong> for proper functioning.**</h3>
+
+<ol>
+  <li>If you haven’t already, use Ethan’s script to flash a MacOS-optimized build of UEFI coreboot after turning off hardware write protection using the <a href="https://docs.chrultrabook.com/docs/firmware/battery.html">unplug battery method</a>. This version of the firmware works in other OSes too, but has optimizations for MacOS which are still compatible with Windows and Linux.</li>
+  <li>Thoroughly read the <a href="https://dortania.github.io/OpenCore-Install-Guide/">OpenCore Guide</a>. Use <a href="https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/broadwell.html">Laptop Broadwell</a> when ready to set up your EFI. Be sure to use the Debug vesion of OpenCore initially.
+    <ul>
+      <li>See <a href="https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html">here</a> for OpenCore debugging info</li>
+      <li>Enable the SysReport quirk in order to dump your ACPI tables, especially your DSDT to run through SSDTTime to generate <strong><em>required SSDT’s</em></strong> as mentioned in step 9.</li>
+    </ul>
+  </li>
+  <li>Re-visit this guide when you’re done setting up your EFI. There are a few things we need to tweak to ensure our Chromebook works with macOS.</li>
+  <li>Fixing CPU core (thread) definition and plugin-type as mentioned in Current Issues
+    <ul>
+      <li>The simplest way: Flash using <a href="https://ethanthesleepy.one/macos/">Ethan’s script</a> instead of MrChromebox’s.</li>
+      <li>Advanced: In an SSDT, set _STA to 0 on all CPU threads, and then define new CPU thread names with compatible addressing and plugin-type set. See <a href="https://github.com/isi95010/LuluMacOS/blob/main/acpi/ssdt-plug-4200.dsl">4-thread CPU sample SSDT</a> that you can compile and use. This assumes you’re using MrChromebox Rom and not from Ethan’s script.</li>
+      <li>Advanced: (working for other Chromebook Hackintoshers): Use SSDT-Plug-Alt.aml. This seems to work fine, but leaves “stray” CPU definitions in the IOService plane. It is unknown if this can cause issues down the line but doesn’t sit right with me. This assumes you’re using MrChromebox Rom and not from Ethan’s script.</li>
+      <li>Advanced (works but not recommended): This is akin to static patching a DSDT, which hackintoshers have moved away from years ago. However, Coreboot defines the CPU in its own SSDT outside of the DSDT, usually called SSDT-1.aml. We can use OpenCore to drop (delete) this OEM SSDT and inject our own, mostly identical “SSDT-1” but with corrected CPU addressing and plugin-type within said SSDT or another SSDT. I won’t provide instructions to do this. This assumes you’re using MrChromebox Rom and not from Ethan’s script.</li>
+    </ul>
+  </li>
+  <li>
+    <p>In your <code class="language-plaintext highlighter-rouge">config.plist</code>, under <code class="language-plaintext highlighter-rouge">Booter -&gt; Quirks</code> set <code class="language-plaintext highlighter-rouge">ProtectMemoryRegions</code> to <code class="language-plaintext highlighter-rouge">TRUE</code>. It should look something like this in your <code class="language-plaintext highlighter-rouge">config.plist</code> when done correctly:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Quirk</th>
+          <th>Type</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ProtectMemoryRegions</td>
+          <td>Boolean</td>
+          <td>True</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <blockquote>
+      <p><strong>Warning</strong> <strong>The above must be enabled for Chromebooks/Chromeboxes to boot MacOS.</strong></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Under <code class="language-plaintext highlighter-rouge">DeviceProperties -&gt; Add -&gt; PciRoot(0x0)/Pci(0x2,0x0)</code>, the following modifications are recommended to enable graphics acceleration, enable smooth LCD backlight stepping, correct the HDMI output signal type, and disable the nonexistant 3rd framebuffer:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AAPL,ig-platform-id</td>
+          <td>data</td>
+          <td>06002616</td>
+        </tr>
+        <tr>
+          <td>framebuffer-patch-enable</td>
+          <td>data</td>
+          <td>01000000</td>
+        </tr>
+        <tr>
+          <td>framebuffer-con1-enable</td>
+          <td>data</td>
+          <td>9B3E0000</td>
+        </tr>
+        <tr>
+          <td>framebuffer-con1-type</td>
+          <td>data</td>
+          <td>00080000</td>
+        </tr>
+        <tr>
+          <td>framebuffer-portcount</td>
+          <td>number</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>enable-backlight-smoother</td>
+          <td>data</td>
+          <td>01000000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <blockquote>
+      <p><strong>You are free to experiment with different <code class="language-plaintext highlighter-rouge">AAPL,ig-platform-id</code>’s but 06002616 works well</strong></p>
+    </blockquote>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">MacBookAir7,2</code> works with Mojave through Monterey. Anything before or after those MacOS versions is not covered here.</strong>. You may find a better suited SMBIOS to mimic or for unsupported future OS versions. Experiment as you wish.</li>
+  <li>You can use the standard VoodooPS2controller and VoodooPS2keyboard plugin with the <a href="https://github.com/isi95010/LuluMacOS/blob/main/acpi/ssdt-chromebook-keys.dsl">PS2 chromebook remapping SSDT sample</a>. There’s no need to use a fork with custom maps in the kext.
+    <ul>
+      <li>Keyboard backlight dimming works with <code class="language-plaintext highlighter-rouge">SSDT-KBBL.aml</code> and can be found <a href="https://github.com/isi95010/LuluMacOS/blob/main/acpi/SSDT-KBBL.dsl">here</a>. The light may or may not come back on after sleeping, but you can use the key-command to dim it back up… This is a bonus feature after all.</li>
+    </ul>
+  </li>
+  <li>It’s recommended to use SSDTTime to generate a fake EC (laptop verions), HPET (IRQ conflicts) and PNLF (requred for display backlight control). Be sure to copy any resulting rename patches from <code class="language-plaintext highlighter-rouge">oc_patches.plist</code> into your <code class="language-plaintext highlighter-rouge">config.plist</code> under <code class="language-plaintext highlighter-rouge">ACPI -&gt; Patch</code>.</li>
+  <li>Map your USB ports³ before installing using Windows. If you can’t be bothered to install Windows, mapping can be done in WinPE. See <a href="https://github.com/USBToolBox">USBToolbox</a>. Remember you need the USBToolbox.kext <em>and</em> your generated UTBMap.kext.</li>
+  <li>
+    <p>Snapshot (cmd +r) or (ctrl + r) your <code class="language-plaintext highlighter-rouge">config.plist</code>.</p>
+
+    <blockquote>
+      <p><strong>Warning</strong>: Don’t use “clean snapshot” (<code class="language-plaintext highlighter-rouge">ctrl/cmd+shift+r</code>) in Propertree after initially copying the sample as config.plist. This can <strong>wipe</strong> some work. Only do <em>regular</em> snapshots after first starting. (<code class="language-plaintext highlighter-rouge">ctrl/cmd+r</code>)</p>
+    </blockquote>
+  </li>
+  <li>Attempt to install the OS</li>
+</ol>
+
+<blockquote>
+  <p><strong>Reminder</strong>: In depth information about OpenCore can be found <a href="https://dortania.github.io/docs/latest/Configuration.html">here.</a></p>
+</blockquote>
+
+<hr />
+
+<h3 id="working-around-cpu-changes-to-coreboot-4200">Working around CPU changes to Coreboot 4.20.0+</h3>
+<p>Coreboot UEFI firmware 4.20 (5/15/2023 release) has a known issue where booting macOS will hang even if you think you’ve created a plugin-type SSDT. To fix this, just use <a href="https://ethanthesleepy.one/macos/">Ethan’s firmware script</a> and the CPU address is solved, then you can use SSDTTime like the Dortania Guide suggests (but feed it SSDT-1.aml from your SysReport).</p>
+
+<hr />
+
+<h3 id="kexts">Kexts</h3>
+
+<p>Propertree <em>should</em> arrange the kexts in the correct order when using OC Snapshot, but here are the enabled kexts and how I’ve ordered them in my config.plist:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lilu.kext
+VirtualSMC.kext
+SMCBatteryManager.kext
+SMCSuperIO.kext
+SMCProcessor.kext
+WhateverGreen.kext
+AppleALC.kext
+USBToolbox.kext
+UTBMap.kext
+VoodooPS2Controller.kext
+VoodooPS2Keyboard.kext
+VoodooPS2Trackpad.kext
+VoodooRMI.kext
+VoodooRMI.kext/VoodooInput.kext
+VoodooI2C.kext/VoodooGPIO.kext
+VoodooI2C.kext/VoodooI2CServices.kext
+VoodooI2C.kext
+VoodooRMI.kext/RMII2C.kext
+</code></pre></div></div>
+<p>Any kexts that are auto-loaded but not listed above should be disabled in your config.plist.</p>
+
+<hr />
+
+<h3 id="acpi-folder">ACPI Folder</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssdt-plug-4200.aml
+SSDT-EC.aml From SSDTTime. 
+SSDT-HPET.aml From SSDTTime. (requires rename hotpatches, don't forget those)
+SSDT-KBBL.aml
+SSDT-PNLF.aml From SSDTTime. 
+ssdt-syna.aml (requires hotpatch below)
+ssdt-chromebook-keys.aml
+</code></pre></div></div>
+<p><strong>Note</strong>: Some of these SSDTs were generated with <a href="https://github.com/corpnewt/SSDTTime">SSDTTime</a> and some were manually written by me for <em>this specific</em> Chromebook. See the <a href="https://github.com/isi95010/LuluMacOS/tree/main/acpi">ACPI Sample folder</a> for .dsl files you can download, double check, then compile into AML.
+<a href="https://github.com/isi95010/LuluMacOS/blob/main/acpi/ssdt-syna.dsl">ssdt-syna.aml</a> defines the _CID of the Synaptics RMI-I2C trackpad as <code class="language-plaintext highlighter-rouge">PNP0C50</code>. The original _CID in the DSDT is <code class="language-plaintext highlighter-rouge">ACPI0C50</code> so we need a hotpatch to rename _CID to XCID. This allows the new _CID in ssdt-syna.aml to work so that VoodooRMII2C can attach to the trackpad. one8three’s method involves manually editing the plist of the kext. This method seems more suitable to survive kext updates down the line when you may forget about the _CID situation with the trackpad. Credit to one8three for identifying the discrepancy in the DSDT. Here is the hotpatch to put in the ACPI/Patch section of your config.plist: 
+   | Key                  | Type   | Value              |
+   | ——————– | —— | —————— |
+   | Base                 | String |                    |
+   | BaseSkip             | Number |    0               |
+   | Comment              | String |_CID to XCID in SYNA|
+   | Count                | Number |    0               |
+   | Enabled              | Boolean|   True             |
+   | Find                 | Data   |  5F4349440D41      |
+   | Limit                | Number |    0               |
+   | Mask                 | Data   |      <empty>       |
+   | OemTableID           | Data   |    00000000        |
+   | Replace              | Data   |  584349440D41      |
+   | ReplaceMask          | Data   |      <empty>       |
+   | Skip                 | Number |    0               |
+   | TableLength          | Number |    0               |
+   | TableSignature       | Data   |    00000000        |</empty></empty></p>
+
+<hr />
+
+<h2 id="misc-information">Misc. Information</h2>
+
+<ul>
+  <li>When formatting the SSD in Disk Utility, make sure to toggle “Show all Drives” to start partitioning.</li>
+  <li>Format the drive as <code class="language-plaintext highlighter-rouge">APFS</code> and <code class="language-plaintext highlighter-rouge">GUID Partition Table / GPT</code></li>
+  <li>Map your USB ports prior to installing macOS. You can use <a href="https://github.com/USBToolBox/tool">USBToolBox</a> to do that. You <em>will</em> need a second kext that goes along with it for it to work. <a href="https://github.com/USBToolBox/kext">Repo here.</a>. Your UTBMap.kext will not work without USBToolBox.kext.</li>
+  <li>AppleTV and other DRM protected services may not work.</li>
+  <li>Control keyboard light with left <code class="language-plaintext highlighter-rouge">ctrl</code> + left <code class="language-plaintext highlighter-rouge">alt</code> and <code class="language-plaintext highlighter-rouge">,</code> or <code class="language-plaintext highlighter-rouge">.</code>.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">,</code> to decrease, <code class="language-plaintext highlighter-rouge">.</code> to increase.</li>
+    </ul>
+  </li>
+  <li>Credit to one8three for the original <a href="https://github.com/one8three/Hackintosh---Dell-Chromebook-13-7310">Dell 7310 Guide</a></li>
+  <li>Credit to <a href="https://github.com/mine-man3000/macOS-Dragonair">mine-man30000</a> for the guide this is based on</li>
+  <li>Credit to <a href="https://github.com/meghan06/">meghan06</a> for the guide that mine-man3000’s is based on</li>
+  <li>Credit to all those who contribute to the <a href="https://docs.chrultrabook.com">Chrultrabook project</a></li>
+  <li>Credit to <a href="https://github.com/MrChromebox?tab=repositories">MrChromebox</a> for inadvertently making the firmware compatible with MacOS.</li>
+  <li>Credit to ExtremeXT for forking and including the modifications for a MacOS-friendly Coreboot</li>
+  <li>Credit to Ethan (ethanthesleepyone) for hosting builds and the MacOS firmware script</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

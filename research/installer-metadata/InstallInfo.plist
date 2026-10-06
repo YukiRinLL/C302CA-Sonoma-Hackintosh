@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Additional Installers</key>
+	<array/>
+	<key>Additional Wrapped Installers</key>
+	<array/>
+	<key>Diagnostics Image Info</key>
+	<dict>
+		<key>URL</key>
+		<string>AppleDiagnostics.dmg</string>
+		<key>chunklistURL</key>
+		<string>AppleDiagnostics.chunklist</string>
+		<key>chunklistid</key>
+		<string>com.apple.chunklist.AppleDiagnostics</string>
+		<key>id</key>
+		<string>com.apple.dmg.AppleDiagnostics</string>
+		<key>sha1</key>
+		<string></string>
+		<key>version</key>
+		<string>10.14.6.0.0.1569030045</string>
+	</dict>
+	<key>OS Installer</key>
+	<string>OSInstall.mpkg</string>
+	<key>Payload Image Info</key>
+	<dict>
+		<key>URL</key>
+		<string>InstallESDDmg.pkg</string>
+		<key>chunklistURL</key>
+		<string>InstallESDDmg.chunklist</string>
+		<key>chunklistid</key>
+		<string>com.apple.chunklist.InstallESDDmg</string>
+		<key>id</key>
+		<string>com.apple.pkg.InstallESDDmg</string>
+		<key>sha1</key>
+		<string></string>
+		<key>version</key>
+		<string>10.14.6.0.0.1569030045</string>
+	</dict>
+	<key>System Image Info</key>
+	<dict>
+		<key>URL</key>
+		<string>BaseSystem.dmg</string>
+		<key>chunklistURL</key>
+		<string>BaseSystem.chunklist</string>
+		<key>chunklistid</key>
+		<string>com.apple.chunklist.BaseSystem</string>
+		<key>id</key>
+		<string>com.apple.dmg.BaseSystem</string>
+		<key>sha1</key>
+		<string></string>
+		<key>version</key>
+		<string>10.14.6.0.0.1569030045</string>
+	</dict>
+</dict>
+</plist>

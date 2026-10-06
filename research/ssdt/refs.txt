@@ -1,0 +1,3 @@
+External (_SB, DeviceObj)
+External (_SB.PCI0, DeviceObj)
+External (_SB.PCI0.LPCB, DeviceObj)
